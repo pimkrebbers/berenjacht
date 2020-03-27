@@ -55,6 +55,8 @@ function setLocations(map, locations) {
     titles[locations[i].latitude + '-' + locations[i].longitude] = newTitle;
     console.log(locations[i].latitude + '-' + locations[i].longitude + " ==> " + newTitle);
   }
+  
+  for (var i = 0; i < locations.length; i++) {
     var new_marker = createMarker(map, locations[i], infowindow, titles[locations[i].latitude + '-' + locations[i].longitude]);
     bounds.extend(new_marker.position);
   }
