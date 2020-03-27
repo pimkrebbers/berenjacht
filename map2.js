@@ -56,8 +56,8 @@ function setLocations(map, locations) {
     //bounds.extend(new_marker.position);
   }
   
-  var SW = new google.maps.LatLng(51.75202659523059, 5.905293087499985);
-  var NE = new google.maps.LatLng(51.794514494659225, 5.991123775976548)
+  var SW = new google.maps.LatLng(51.797041, 5.905211);
+  var NE = new google.maps.LatLng(51.755552, 5.965191)
   
   bounds.extend(SW);
   bounds.extend(NE);
