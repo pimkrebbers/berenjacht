@@ -32,7 +32,7 @@ function initialiseMap() {
         zoom: 10,
         center: new google.maps.LatLng(0, 0)
       };
-      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
       setLocations(map, locations);
       
       google.maps.event.addListener(map, "bounds_changed", function() {
