@@ -62,7 +62,7 @@ function createMarker(map, location, infowindow) {
     position: position,
     map: map,
     title: location.title,
-    icon: 'https://pimkrebbers.github.io/berenjacht/bear.png'
+    icon: 'https://pimkrebbers.github.io/berenjacht/Bear.png'
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent('<div>'+
