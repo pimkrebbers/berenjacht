@@ -51,6 +51,21 @@ function setLocations(map, locations) {
   var infowindow = new google.maps.InfoWindow({
     content: "Content String"
   });
+  
+  // bundle all locations on exact same coordinates
+  var titles = new Array();
+  for (var i = 0; i < locations.length; i++) {
+    var newTitle = titles[locations[i].latitude + '-' + locations[i].longitude];
+    if (newTitle) {
+      newTitle += ", " + locations[i].title;
+    } else {
+      newTitle = locations[i].title;
+    }
+    titles[locations[i].latitude + '-' + locations[i].longitude] = newTitle;
+    console.log(locations[i].latitude + '-' + locations[i].longitude + " ==> " + newTitle);
+  }
+  
+  
   for (var i = 0; i < locations.length; i++) {
     var new_marker = createMarker(map, locations[i], infowindow);
     //bounds.extend(new_marker.position);
