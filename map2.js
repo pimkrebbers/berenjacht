@@ -67,7 +67,7 @@ function setLocations(map, locations) {
   
   
   for (var i = 0; i < locations.length; i++) {
-    var new_marker = createMarker(map, locations[i], infowindow);
+    var new_marker = createMarker(map, locations[i], infowindow, titles[locations[i].latitude + '-' + locations[i].longitude]);
     //bounds.extend(new_marker.position);
   }
   
@@ -79,7 +79,7 @@ function setLocations(map, locations) {
   map.fitBounds(bounds);
 }
 
-function createMarker(map, location, infowindow) {
+function createMarker(map, location, infowindow, composedTitle) {
 
   // Modify the code below to suit the structure of your spreadsheet (stored in variable 'location')
   var position = {
@@ -89,11 +89,11 @@ function createMarker(map, location, infowindow) {
   var marker = new google.maps.Marker({
     position: position,
     map: map,
-    title: location.title,
+    title: composedTitle,
     icon: 'https://pimkrebbers.github.io/berenjacht/Bear.png'
   });
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent('<div style="color: black;"><p><strong>' + this.title + '</strong></p></div>');
+    infowindow.setContent('<div style="color: black;"><p><strong>' + composedTitle + '</strong></p></div>');
     infowindow.open(map, marker);
   });
   return marker;
