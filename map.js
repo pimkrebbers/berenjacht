@@ -65,12 +65,7 @@ function createMarker(map, location, infowindow) {
     icon: 'https://pimkrebbers.github.io/berenjacht/Bear.png'
   });
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent('<div>'+
-    '<p><strong>' + ((location.url === undefined) ? location.title : ('<a href="' + location.url +'">' + location.title + '</a>')) + '</strong></p>' +
-    ((location.institution === undefined) ? "" : ('<p><strong>Lead institution: </strong>' + location.institution + '</p>')) +
-    ((location.department === undefined) ? "" : ('<p><strong>Department: </strong>' + location.department + '</p>')) +
-    ((location.funder === undefined) ? "" : ('<p><strong>Funder: </strong>' + location.funder + '</p>')) +
-    '</div>');
+    infowindow.setContent('<div>'+'<p><strong>' + location.title + '</p>' + '</div>');
     infowindow.open(map, marker);
   });
   return marker;
