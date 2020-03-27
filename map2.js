@@ -35,10 +35,12 @@ function initialiseMap() {
       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
       setLocations(map, locations);
       
+      /*
       google.maps.event.addListener(map, "bounds_changed", function() {
          // send the new bounds back to your server
          console.log("map bounds{"+map.getBounds());
       });
+      */
   });
 }
 
@@ -54,8 +56,9 @@ function setLocations(map, locations) {
     //bounds.extend(new_marker.position);
   }
   
-  var SW = new google.maps.LatLng(51.75330845591635, 5.904005627172837);
-  var NE = new google.maps.LatLng(51.79579514910381, 5.9898363156493994);
+  var SW = new google.maps.LatLng(51.75202659523059, 5.905293087499985);
+  var NE = new google.maps.LatLng(51.794514494659225, 5.991123775976548)
+  
   bounds.extend(SW);
   bounds.extend(NE);
   map.fitBounds(bounds);
