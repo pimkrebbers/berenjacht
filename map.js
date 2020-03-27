@@ -49,11 +49,11 @@ function setLocations(map, locations) {
     var newTitle = titles[locations[i].latitude + '-' + locations[i].longitude];
     if (newTitle) {
       newTitle += ", " + locations[i].title;
+      console.log(locations[i].latitude + '-' + locations[i].longitude + " ==> " + newTitle);
     } else {
       newTitle = locations[i].title;
     }
     titles[locations[i].latitude + '-' + locations[i].longitude] = newTitle;
-    console.log(locations[i].latitude + '-' + locations[i].longitude + " ==> " + newTitle);
   }
   
   for (var i = 0; i < locations.length; i++) {
