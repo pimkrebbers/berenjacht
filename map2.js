@@ -37,7 +37,7 @@ function initialiseMap() {
       
       google.maps.event.addListener(map, "bounds_changed", function() {
          // send the new bounds back to your server
-         alert("map bounds{"+map.getBounds());
+         console.log("map bounds{"+map.getBounds());
       });
   });
 }
