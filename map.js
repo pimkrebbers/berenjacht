@@ -65,7 +65,7 @@ function createMarker(map, location, infowindow) {
     icon: 'https://pimkrebbers.github.io/berenjacht/Bear.png'
   });
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent('<div>'+'<p><strong>' + location.title + '</p>' + '</div>');
+    infowindow.setContent('<div>'+'<p><strong>' + this.title + '</p>' + '</div>');
     infowindow.open(map, marker);
   });
   return marker;
