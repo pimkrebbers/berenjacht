@@ -1,0 +1,12 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Verdana;
+}
+a {
+  color: white;
+}
+#map {
+    width: 1000px;
+    height: 800px;    
+}
