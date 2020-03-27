@@ -51,8 +51,13 @@ function setLocations(map, locations) {
   });
   for (var i = 0; i < locations.length; i++) {
     var new_marker = createMarker(map, locations[i], infowindow);
-    bounds.extend(new_marker.position);
+    //bounds.extend(new_marker.position);
   }
+  
+  var SW = new google.maps.LatLng(51.75330845591635, 5.904005627172837);
+  var NE = new google.maps.LatLng(51.79579514910381, 5.9898363156493994);
+  bounds.extend(SW);
+  bounds.extend(NE);
   map.fitBounds(bounds);
 }
 
