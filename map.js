@@ -44,14 +44,24 @@ function setLocations(map, locations) {
   var infowindow = new google.maps.InfoWindow({
     content: "Content String"
   });
+  var titles = new Array();
   for (var i = 0; i < locations.length; i++) {
-    var new_marker = createMarker(map, locations[i], infowindow);
+    var newTitle = titles[locations[i].latitude + '-' + locations[i].longitude];
+    if (newTitle) {
+      newTitle += ", " + locations[i].title;
+    } else {
+      newTitle = locations[i].title;
+    }
+    titles[locations[i].latitude + '-' + locations[i].longitude] = newTitle;
+    console.log(locations[i].latitude + '-' + locations[i].longitude + " ==> " + newTitle);
+  }
+    var new_marker = createMarker(map, locations[i], infowindow, titles[locations[i].latitude + '-' + locations[i].longitude]);
     bounds.extend(new_marker.position);
   }
   map.fitBounds(bounds);
 }
 
-function createMarker(map, location, infowindow) {
+function createMarker(map, location, infowindow, composedTitle) {
 
   // Modify the code below to suit the structure of your spreadsheet (stored in variable 'location')
   var position = {
@@ -61,11 +71,11 @@ function createMarker(map, location, infowindow) {
   var marker = new google.maps.Marker({
     position: position,
     map: map,
-    title: location.title,
+    title: composedTitle,
     icon: 'https://pimkrebbers.github.io/berenjacht/Bear.png'
   });
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent('<div style="color: black;"><p><strong>' + this.title + '</strong></p></div>');
+    infowindow.setContent('<div style="color: black;"><p><strong>' + composedTitle + '</strong></p></div>');
     infowindow.open(map, marker);
   });
   return marker;
