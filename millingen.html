@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Berenjacht Millingen aan de Rijn</title>
+    <link rel="stylesheet" href="map.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+    <link rel="shortcut icon" href="/berenjacht/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/berenjacht/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+<h1>Berenjacht Millingen aan de Rijn</h1>
+<p><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSf3JF54fawWP0IXJk6XXMb--IxMuNVZXsg8GwPDnq2S93PfjQ/viewform?usp=sf_link">Klik hier om een adres toe te voegen. Zorg dat je 'Millingen aan de Rijn' kiest bij plaats.</a></p>
+
+<p id="aantalberen"></p>
+<!--
+<p style="color:red;">Er gaat momenteel iets mis met het tonen van de kaart: toevoegen van beren kan wel!<br/>Ondertussen probeer ik de kaart te repareren, even geduld dus aub!</p>
+-->
+
+<script src="map_millingen.js"></script>
+
+<div id="map"></div>
+<!-- Replace the value of the key parameter in the call to the Google Maps JavaScript API URL below with your own API key. -->
+<!-- Make sure your API key is authorised to access the Google Maps API - you can enable that through your Google Developer console. -->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDapnAfTmAxWjt56_vWZM9lLobV-V6y9HE&callback=initialiseMap">
+</script>
+
+
+
+</body>
+</html>
