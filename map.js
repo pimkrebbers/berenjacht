@@ -29,8 +29,8 @@ function initialiseMap() {
 
       // Center on (0, 0). Map center and zoom will reconfigure later (fitbounds method)
       var mapOptions = {
-        zoom: 10,
-        center: new google.maps.LatLng(0, 0)
+        zoom: 14,
+        center: new google.maps.LatLng(51.772437, 5.947937)
       };
       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
       setLocations(map, locations);
@@ -58,9 +58,9 @@ function setLocations(map, locations) {
   
   for (var i = 0; i < locations.length; i++) {
     var new_marker = createMarker(map, locations[i], infowindow, titles[locations[i].latitude + '-' + locations[i].longitude]);
-    bounds.extend(new_marker.position);
+    //bounds.extend(new_marker.position);
   }
-  map.fitBounds(bounds);
+  //map.fitBounds(bounds);
 }
 
 function createMarker(map, location, infowindow, composedTitle) {
