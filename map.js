@@ -15,7 +15,7 @@ function initialiseMap() {
     		var location = {};
 				location.title = this[0];
         
-        if (this[2]) {
+        if ((!this[3] || this[3] == 'Groesbeek') && this[2]) {
           var coordinates = this[2].split(",");
           location.latitude = parseFloat(coordinates[0]);
           location.longitude = parseFloat(coordinates[1]);
