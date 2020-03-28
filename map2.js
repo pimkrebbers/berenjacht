@@ -63,7 +63,7 @@ function setLocations(map, locations) {
     //bounds.extend(new_marker.position);
   }
   
-  document.getElementById('aantalberen').innerHTML = "Er staan op dit moment "+aantalberen +" op de kaart!";
+  document.getElementById('aantalberen').innerHTML = "<i>Er staan op dit moment "+aantalberen +" beren op de kaart!</i>";
   //map.fitBounds(bounds);
 }
 
