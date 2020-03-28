@@ -16,9 +16,9 @@ function initialiseMap() {
 				location.title = this[0];
         
         if (this[2]) {
-        
-          location.latitude = parseFloat(this[3]);
-          location.longitude = parseFloat(this[4]);
+          var coordinates = this[2].split(",");
+          location.latitude = parseFloat(coordinates[0]);
+          location.longitude = parseFloat(coordinates[1]);
           //location.institution = this[3];
           //location.department = this[4];
           //location.funder = this[0];
