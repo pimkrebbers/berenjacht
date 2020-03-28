@@ -14,11 +14,11 @@ function initialiseMap() {
     	$(data.values).each(function() {
     		var location = {};
 				location.title = this[0];
-        
+
         if (this[2]) {
-        
-          location.latitude = parseFloat(this[2]);
-          location.longitude = parseFloat(this[3]);
+          var coordinates = this[2].split(",");
+          location.latitude = parseFloat(coordinates[0]);
+          location.longitude = parseFloat(coordinates[1]);
           //location.institution = this[3];
           //location.department = this[4];
           //location.funder = this[0];
@@ -30,17 +30,10 @@ function initialiseMap() {
       // Center on (0, 0). Map center and zoom will reconfigure later (fitbounds method)
       var mapOptions = {
         zoom: 10,
-        center: new google.maps.LatLng(0, 0)
+        center: new google.maps.LatLng(51.772437, 5.947937)
       };
       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
       setLocations(map, locations);
-      
-      /*
-      google.maps.event.addListener(map, "bounds_changed", function() {
-         // send the new bounds back to your server
-         console.log("map bounds{"+map.getBounds());
-      });
-      */
   });
 }
 
@@ -51,32 +44,23 @@ function setLocations(map, locations) {
   var infowindow = new google.maps.InfoWindow({
     content: "Content String"
   });
-  
-  // bundle all locations on exact same coordinates
   var titles = new Array();
   for (var i = 0; i < locations.length; i++) {
     var newTitle = titles[locations[i].latitude + '-' + locations[i].longitude];
     if (newTitle) {
       newTitle += ", " + locations[i].title;
+      console.log(locations[i].latitude + '-' + locations[i].longitude + " ==> " + newTitle);
     } else {
       newTitle = locations[i].title;
     }
     titles[locations[i].latitude + '-' + locations[i].longitude] = newTitle;
-    console.log(locations[i].latitude + '-' + locations[i].longitude + " ==> " + newTitle);
   }
-  
-  
+
   for (var i = 0; i < locations.length; i++) {
     var new_marker = createMarker(map, locations[i], infowindow, titles[locations[i].latitude + '-' + locations[i].longitude]);
     //bounds.extend(new_marker.position);
   }
-  
-  var SW = new google.maps.LatLng(51.797041, 5.905211);
-  var NE = new google.maps.LatLng(51.755552, 5.965191)
-  
-  bounds.extend(SW);
-  bounds.extend(NE);
-  map.fitBounds(bounds);
+  //map.fitBounds(bounds);
 }
 
 function createMarker(map, location, infowindow, composedTitle) {
