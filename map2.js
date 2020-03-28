@@ -45,6 +45,7 @@ function setLocations(map, locations) {
     content: "Content String"
   });
   var titles = new Array();
+  var aantalberen = 0;
   for (var i = 0; i < locations.length; i++) {
     var newTitle = titles[locations[i].latitude + '-' + locations[i].longitude];
     if (newTitle) {
@@ -54,12 +55,15 @@ function setLocations(map, locations) {
       newTitle = locations[i].title;
     }
     titles[locations[i].latitude + '-' + locations[i].longitude] = newTitle;
+    aantalberen ++;
   }
 
   for (var i = 0; i < locations.length; i++) {
     var new_marker = createMarker(map, locations[i], infowindow, titles[locations[i].latitude + '-' + locations[i].longitude]);
     //bounds.extend(new_marker.position);
   }
+  
+  document.getElementById('aantalberen').innerHTML = "Er staan op dit moment "+aantalberen +" op de kaart!";
   //map.fitBounds(bounds);
 }
 
