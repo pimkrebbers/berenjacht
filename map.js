@@ -77,7 +77,7 @@ function createMarker(map, location, infowindow, composedTitle) {
     position: position,
     map: map,
     title: composedTitle,
-    icon: 'https://pimkrebbers.github.io/pietjesspeurtocht/Bear.png'
+    icon: 'https://pimkrebbers.github.io/pietjesspeurtocht/Pietje-klein.png'
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent('<div style="color: black;"><p><strong>' + composedTitle + '</strong></p></div>');
